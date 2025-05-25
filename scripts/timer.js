@@ -8,7 +8,6 @@ function CountdownController(initialTime) {
     }
 
     const loopCountdown = (time) => {
-        console.log(time);
         time--;
         if (time < 0) {
             return;

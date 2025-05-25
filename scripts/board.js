@@ -1,13 +1,15 @@
-const questions = [
-    {
-        'questionId': 'question1',
-        'text': 'Question1'
-    },
-    {
-        questionId: 'question2',
-        text: 'Question2'
-    }
-]
+let questions = [];
+
+const quizDataUrl = 'https://script.google.com/macros/s/AKfycbwNmpbczznbpinQiVztz_vP286ibgXacq3v5AkjvZT1nAVjeM_n5y0OOeoSKb7EqoXKtg/exec';
+
+fetch(quizDataUrl)
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+    questions.push(...data);
+})
+.catch(error => console.error('Ошибка загрузки данных:', error));
+
 
 function ScreenController() {
     const currentQuestionBox = document.querySelector('.current-question-box');
