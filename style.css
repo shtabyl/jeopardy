@@ -44,6 +44,14 @@ body {
     height: 100svh;
 }
 
+.main-container-hero {
+    height: 100svh;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    background-color: var(--clr-bg-dark);
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -84,17 +92,24 @@ body {
 }
 
 .title_hero {
-    font-size: 80px;
+    font-size: var(--fs-900);
     color: var(--clr-text);
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1;
-    text-align-last: justify;
-    letter-spacing: 1px;
+    letter-spacing: normal;
+    & p:first-child {
+        letter-spacing: 1px;
+    }
 }
 
 .link_hero {
     cursor: auto;
+    display: grid;
+    border: 1px solid black;
+    width: 100vw;
+    height: 100%;
+    text-decoration: none;
 }
 
 .current-question-box {
