@@ -123,6 +123,7 @@ body {
 }
 
 .footer {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -148,6 +149,7 @@ body {
     color: #a0c3ff;
     font-size: var(--fs-400);
     padding-inline: 1.25em;
+    padding-bottom: 1.4em;
 }
 
 .score-controller {
@@ -195,4 +197,22 @@ body {
     & span:last-child {
         transform: translateY(-1px) rotate(90deg);
     }
+}
+
+.round-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: auto;
+    width: min-content;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1ch;
+    background-color: inherit;
+    font-size: var(--fs-300);
+    color: #a0c3ff;
+    border-top: 1px solid var(--clr-border);
+    padding: 0.3em 1.80em;
 }
