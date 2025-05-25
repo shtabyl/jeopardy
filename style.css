@@ -7,12 +7,12 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    --clr-bg-dark: #2c508f;
-    --clr-bg-light: #31569b;
+    --clr-bg-dark: #294576;
+    --clr-bg-light: #325188;
     --clr-text: #edc825;
     --bg-gradient: radial-gradient(circle, hsl(219, 52%, 40%), hsl(218, 53%, 37%));
     --bg-gradient-accent: radial-gradient(circle, hsl(219, 52%, 40%), hsl(218, 53%, 37%));
-    --clr-border: hsl(217, 29%, 45%);
+    --clr-border: hsl(219, 16%, 47%);
 }
 
 * {
