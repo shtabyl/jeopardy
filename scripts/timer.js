@@ -29,6 +29,9 @@ function CountdownScreenController() {
     
     const updateScreen = (time) => {
         countdownBox.textContent = ('0' + time).slice(-2);
+        if (time === 0) {
+            timerBox.style.color = '#a0c3ff';
+        }
     }
     
     return { updateScreen }
@@ -42,7 +45,7 @@ function TimerController() {
     
     const timerBox = document.querySelector('.timer-box');
     const boardCells = document.querySelectorAll('.cell_link');
-    const currentQuestionBox = document.querySelector('.current-question-box');
+    // const currentQuestionBox = document.querySelector('.current-question-box');
 
     boardCells.forEach((cell) => {
         cell.addEventListener('click', (e) => {
@@ -52,10 +55,14 @@ function TimerController() {
         }); 
     });
 
-    currentQuestionBox.addEventListener('click', (e) => {
-        screen.updateScreen(initialTime);
-        timerBox.style.color = '#a0c3ff';
-        timer.stopCountdown();
+    const controlScoreBtns = document.querySelectorAll('.score-control-button');
+
+    controlScoreBtns.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            screen.updateScreen(initialTime);
+            timerBox.style.color = '#a0c3ff';
+            timer.stopCountdown();
+        });
     });
 
     // Initial screen

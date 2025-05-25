@@ -31,11 +31,11 @@ function GameBoard(roundNum) {
     return { getBoard }
 }
 
-GameBoard();
+// GameBoard();
 
 function ScreenController() {
     let roundNum = 1;
-    let questionNum = 19;
+    let questionNum = 0;
 
     const currentQuestionBox = document.querySelector('.current-question-box');
     const questionText = document.querySelector('.current-question-text');
@@ -64,6 +64,77 @@ function ScreenController() {
             currentQuestionBox.style.display = 'none';
         }, 300);
     }
+
+    let currentQuestionWeight = 0;
+    let scoreCommand1 = 0;
+    let scoreCommand2 = 0;
+
+    const scoreBoxCommand1 = document.querySelector('#score-command1');
+    const scoreBoxCommand2 = document.querySelector('#score-command2');
+    
+    const updateScore = () => {
+        scoreBoxCommand1.textContent = scoreCommand1;
+        scoreBoxCommand2.textContent = scoreCommand2;
+    }
+
+    updateScore();
+
+    const controlScoreBtns = document.querySelectorAll('.score-control-button');
+
+    controlScoreBtns.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            switch (e.target) {
+                case controlScoreBtns[0]:
+                    scoreCommand1 -= currentQuestionWeight;
+                    break;
+                case controlScoreBtns[1]:
+                    scoreCommand1 += currentQuestionWeight;
+                    break;
+                case controlScoreBtns[2]:
+                    scoreCommand2 -= currentQuestionWeight;
+                    break;
+                case controlScoreBtns[3]:
+                    scoreCommand2 += currentQuestionWeight;
+                    break;
+            }
+            // console.log(currentQuestionWeight);
+            updateScore();
+            // console.log(scoreCommand1, scoreCommand2);
+            currentQuestionWeight = 0;
+
+            
+            if (questionNum === 20 && roundNum === 1) {
+                roundNum += 1;
+                // questionNum = 0;
+                roundNumberBox.innerText = roundNum;
+                currentQuestionBox.textContent = 'Первый раунд окончен';
+                setTimeout(() => {
+                    hideCurrentQuestionBox();
+                }, 5000);
+                renderBoard();
+            } else if (questionNum < 40) {
+                hideCurrentQuestionBox();
+            }
+            if (questionNum === 40) {
+                currentQuestionBox.textContent = 'Игра окончена!';
+                currentQuestionBox.style.fontSize = '2em';
+                const resultBox = document.createElement('p');
+                resultBox.style.padding = '1em 0';
+                resultBox.style.fontSize = '2em';
+                let resultText = '';
+                if (scoreCommand1 > scoreCommand2) {
+                    resultText = 'Победила команда 1!';
+                } else if (scoreCommand1 < scoreCommand2) {
+                    resultText = 'Победила команда 2!';
+                } else {
+                    resultText = 'Ничья. Играем блиц!';
+                }
+                resultBox.textContent = resultText;
+                currentQuestionBox.appendChild(resultBox);
+                console.log('Игра окончена');
+            }
+        });
+    });
     
     boardCells.forEach((cell) => {
         cell.addEventListener('click', (e) => {
@@ -79,6 +150,7 @@ function ScreenController() {
                     && question.round === roundNum
                 ) {
                     questionText.innerText = question.text;
+                    currentQuestionWeight = question.weight;
                 }
             }
 
@@ -87,20 +159,20 @@ function ScreenController() {
         });
     });
     
-    currentQuestionBox.addEventListener('click', (e) => {
-        hideCurrentQuestionBox();
+    // currentQuestionBox.addEventListener('click', (e) => {
+    //     hideCurrentQuestionBox();
 
-        if (questionNum === 20 && roundNum === 1) {
-            roundNum += 1;
-            // questionNum = 0;
-            roundNumberBox.innerText = roundNum;
-            renderBoard();
-        } else if (questionNum === 40) {
-            console.log('game over');
-        }
-    });
+    //     if (questionNum === 20 && roundNum === 1) {
+    //         roundNum += 1;
+    //         // questionNum = 0;
+    //         roundNumberBox.innerText = roundNum;
+    //         renderBoard();
+    //     } else if (questionNum === 40) {
+    //         console.log('game over');
+    //     }
+    // });
 
-    return { renderBoard };
+    return { renderBoard, updateScore };
 
 }
 

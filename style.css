@@ -105,7 +105,7 @@ body {
     background-color: var(--clr-bg-dark);
     text-align: center;
     place-content: center;
-    font-size: 30px;
+    font-size: var(--fs-700);
     color: var(--clr-text);
     z-index: 10;
     opacity: 1;
