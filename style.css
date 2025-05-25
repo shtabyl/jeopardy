@@ -1,9 +1,19 @@
-:root {
-    --clr-background: #0A85ED;
-    --clr-text: #f4ce21;
-    --clr-border: #f4ce21;
-}
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+:root {
+    /* font-family: "Onest", sans-serif; */
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    --clr-bg-dark: #2c508f;
+    --clr-bg-light: #31569b;
+    --clr-text: #edc825;
+    --bg-gradient: radial-gradient(circle, hsl(219, 52%, 40%), hsl(218, 53%, 37%));
+    --bg-gradient-accent: radial-gradient(circle, hsl(219, 52%, 40%), hsl(218, 53%, 37%));
+    --clr-border: hsl(217, 29%, 45%);
+}
 
 * {
     margin: 0;
@@ -18,35 +28,28 @@
 }
 
 .cell {
-    background-color: var(--clr-background);
-    border: 1px solid #5B8FBA;
+    background-color: var(--clr-bg-dark);
+    border: 1px solid var(--clr-border);
     display: grid;
     place-content: center;
     font-size: 40px;
     color: var(--clr-text);
     padding: 0.35em;
+    text-shadow: #4a6596 0 0 20px;;
 }
 
-.link {
-    text-decoration: none;
+.cell_link {
+    position: relative;
     transition: 0.3s ease;
-}
-
-.link:hover {
-    background-color: #358ecd;
-}
-
-.link:active {
-    color: #ebe0ac;
+    &:hover {
+        background-color: var(--clr-bg-light);
+        transition: .3s ease;
+        cursor: pointer;
+    }
 }
 
 .row-name {
     justify-content: start;
-}
-
-.cell-clicked {
-    background-color: #a7a188;
-    color: #708b9e;
 }
 
 .hero__title {
@@ -54,7 +57,7 @@
     height: 100svh;
     display: grid;
     place-content: center;
-    background-color: var(--clr-background);
+    background-color: var(--clr-bg);
 }
 
 .title_hero {
