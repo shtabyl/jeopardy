@@ -88,7 +88,6 @@ body {
     height: 100svh;
     display: grid;
     place-content: center;
-    background-color: var(--clr-bg);
 }
 
 .title_hero {
@@ -200,19 +199,32 @@ body {
         height: 2px;
         background-color: white;
     }
+    &:focus {
+        outline: none;
+    }
 }
 
 .score-minus {
     background-color: rgba(212, 116, 116, 0.6);
+    transition: .3s ease;
+    &:hover {
+        background-color: hsla(0, 83%, 70%, 0.6);
+        transition: .3s ease;
+    }
 }
 
 .score-plus {
     background-color: rgba(74, 157, 74, 0.7);
+    transition: .3s ease;
     & span:first-child {
         transform: translateY(1px);
     }
     & span:last-child {
         transform: translateY(-1px) rotate(90deg);
+    }
+    &:hover {
+        background-color: hsla(120, 48%, 47%, 0.7);
+        transition: .3s ease;
     }
 }
 
@@ -231,5 +243,5 @@ body {
     font-size: var(--fs-300);
     color: #a0c3ff;
     border-top: 1px solid var(--clr-border);
-    padding: 0.3em 1.75em;
+    padding: 0.3em 1.7em;
 }
