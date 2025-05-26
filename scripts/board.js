@@ -83,7 +83,7 @@ function ScreenController() {
 
     controlScoreBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
-            switch (e.target) {
+            switch (e.currentTarget) {
                 case controlScoreBtns[0]:
                     scoreCommand1 -= currentQuestionWeight;
                     break;
@@ -97,11 +97,10 @@ function ScreenController() {
                     scoreCommand2 += currentQuestionWeight;
                     break;
             }
-            // console.log(currentQuestionWeight);
-            updateScore();
-            // console.log(scoreCommand1, scoreCommand2);
-            currentQuestionWeight = 0;
 
+            updateScore();
+
+            currentQuestionWeight = 0;
             
             if (questionNum === 20 && roundNum === 1) {
                 roundNum += 1;
