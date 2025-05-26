@@ -35,7 +35,7 @@ function GameBoard(roundNum) {
 
 function ScreenController() {
     let roundNum = 1;
-    let questionNum = 0;
+    let questionNum = 19;
 
     const currentQuestionBox = document.querySelector('.current-question-box');
     const questionText = document.querySelector('.current-question-text');
@@ -107,7 +107,7 @@ function ScreenController() {
                 roundNum += 1;
                 // questionNum = 0;
                 roundNumberBox.innerText = roundNum;
-                currentQuestionBox.textContent = 'Первый раунд окончен';
+                questionText.textContent = 'Первый раунд окончен';
                 setTimeout(() => {
                     hideCurrentQuestionBox();
                 }, 5000);
@@ -116,8 +116,8 @@ function ScreenController() {
                 hideCurrentQuestionBox();
             }
             if (questionNum === 40) {
-                currentQuestionBox.textContent = 'Игра окончена!';
-                currentQuestionBox.style.fontSize = '2em';
+                questionText.textContent = 'Игра окончена!';
+                questionText.style.fontSize = '2em';
                 const resultBox = document.createElement('p');
                 resultBox.style.padding = '1em 0';
                 resultBox.style.fontSize = '2em';
