@@ -31,7 +31,7 @@ function GameBoard(roundNum) {
 
 function ScreenController() {
     let roundNum = 1;
-    let questionNum = 19;
+    let questionNum = 0;
 
     const currentQuestionBox = document.querySelector('.current-question-box');
     const questionText = document.querySelector('.current-question-text');
