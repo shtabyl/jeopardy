@@ -26,6 +26,7 @@ function CountdownController(initialTime) {
 // Screen performance
 function CountdownScreenController() {
     const countdownBox = document.querySelector('.countdown-box');
+    const timerBox = document.querySelector('.timer-box');
     
     const updateScreen = (time) => {
         countdownBox.textContent = ('0' + time).slice(-2);
