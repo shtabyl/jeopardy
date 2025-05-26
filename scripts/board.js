@@ -7,10 +7,8 @@ fetch(quizDataUrl)
 .then(data => {
     console.log(data);
     questions.push(...data);
-
     // const board = GameBoard(roundNum).getBoard();
     // console.log(board);
-
     ScreenController().renderBoard();
     
 })
@@ -30,8 +28,6 @@ function GameBoard(roundNum) {
 
     return { getBoard }
 }
-
-// GameBoard();
 
 function ScreenController() {
     let roundNum = 1;
@@ -157,22 +153,7 @@ function ScreenController() {
             
         });
     });
-    
-    // currentQuestionBox.addEventListener('click', (e) => {
-    //     hideCurrentQuestionBox();
-
-    //     if (questionNum === 20 && roundNum === 1) {
-    //         roundNum += 1;
-    //         // questionNum = 0;
-    //         roundNumberBox.innerText = roundNum;
-    //         renderBoard();
-    //     } else if (questionNum === 40) {
-    //         console.log('game over');
-    //     }
-    // });
 
     return { renderBoard, updateScore };
 
 }
-
-ScreenController();
