@@ -174,7 +174,7 @@ if (!localStorage.getItem('CommandOneName')) {
 if (!localStorage.getItem('CommandTwoName')) {
     localStorage.textContent = 'Команда 2';
 } else {
-    localStorage.textContent = localStorage.getItem('CommandTwoName');
+    commandTwoName.textContent = localStorage.getItem('CommandTwoName');
 }
 
 localStorage.clear();
