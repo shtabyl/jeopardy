@@ -157,3 +157,24 @@ function ScreenController() {
     return { renderBoard, updateScore };
 
 }
+
+
+const commandOneName = document.querySelector('.command-one-name');
+const commandTwoName = document.querySelector('.command-two-name');
+
+console.log(localStorage.getItem('CommandOneName'));
+console.log(localStorage.getItem('CommandTwoName'));
+
+if (!localStorage.getItem('CommandOneName')) {
+    commandOneName.textContent = 'Команда 1';
+} else {
+    commandOneName.textContent = localStorage.getItem('CommandOneName');
+}
+
+if (!localStorage.getItem('CommandTwoName')) {
+    localStorage.textContent = 'Команда 2';
+} else {
+    localStorage.textContent = localStorage.getItem('CommandTwoName');
+}
+
+localStorage.clear();

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
+    <script src="/scripts/index.js" defer></script>
 
     <title>Своя игра</title>
 </head>
@@ -13,11 +13,25 @@
         <a class="link link_hero" href="board.html">
             <section class="hero">
                 <h1 class="hero__title title_hero">
-                    <p>Своя</p>
-                    <p>игра!</p>
+                    <p class="hero-title-first-word">Своя</p>
+                    <p class="hero-title-second-word">игра!</p>
                 </h1>
             </section>
         </a>
+        <form class="form">
+            <div class="input-wrapper">
+                <div class="command-one-input-box input-box">
+                    <label for="CommandOneName">Команда 1</label>
+                    <input type="text" id="CommandOneName" autocomplete="off">
+                </div>
+                <p class="emoji">🤜 &nbsp 🤛</p>
+                <div class="command-two-input-box input-box">
+                    <input type="text" id="CommandTwoName" autocomplete="off">
+                    <label for="CommandTwoName">Команда 2</label>
+                </div>
+            </div>
+            <button class="start-button button" type="submit">Начать</button>
+        </form>
     </div>
 </body>
 </html>
