@@ -30,14 +30,16 @@ function GameBoard(roundNum) {
 }
 
 function ScreenController() {
-    let roundNum = 1;
-    let questionNum = 0;
+    let roundNum = 2;
+    let questionNum = 39;
 
     const currentQuestionBox = document.querySelector('.current-question-box');
     const questionText = document.querySelector('.current-question-text');
     const boardCells = document.querySelectorAll('.cell_link');
     const roundNumberBox = document.querySelector('.round-number');
 
+    roundNumberBox.innerText = roundNum;
+    
     const renderBoard = () => {
         const board = GameBoard(roundNum).getBoard();
         for (let i = 0; i < board.length; i++) {
@@ -112,10 +114,10 @@ function ScreenController() {
             }
             if (questionNum === 40) {
                 questionText.textContent = 'Игра окончена!';
-                questionText.style.fontSize = '2em';
+                questionText.style.fontSize = '1.5em';
                 const resultBox = document.createElement('p');
-                resultBox.style.padding = '1em 0';
-                resultBox.style.fontSize = '2em';
+                resultBox.style.padding = '0.5em 0';
+                resultBox.style.fontSize = '1.5em';
                 let resultText = '';
                 if (scoreCommand1 > scoreCommand2) {
                     resultText = 'Победила команда 1!';

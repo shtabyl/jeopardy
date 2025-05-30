@@ -234,7 +234,7 @@ label {
 }
 
 .current-question-text {
-    padding: 10vw;
+    padding-inline: 10vw;
 }
 
 .hide {
